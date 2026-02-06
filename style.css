@@ -1,0 +1,889 @@
+/* =========================================
+   1. Variables & Settings
+   ========================================= */
+:root {
+  --primary: #ac1313;
+  --text-main: black;
+  --text-light: #6c6c6c;
+  --bg-light: #f8f6f4;
+  --border: #ebebeb;
+  --gainsboro: #dbdbdb;
+  --light-coral: #d77474;
+  --burlywood: #ebb96a;
+  --orange-red: #ff5f0f;
+  --dark-grey: #a1a1a1;
+  --grey: #858585;
+  --dim-grey-2: #4d4d4d;
+  --dim-grey: #6c6c6c;
+  --white: white;
+}
+
+/* =========================================
+   2. Reset & Base Styles
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+section{
+    position: relative;
+}
+
+section::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -300%;
+    width: 1000%;
+    height: 1px;
+    background-color: var(--border);
+}
+
+p {
+    color: var(--dim-grey);
+    text-align: left;
+    margin-bottom: 10px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* =========================================
+   3. Typography
+   ========================================= */
+.brand-font {
+  font-family: "Pacifico", sans-serif;
+  color: var(--text-main);
+  font-size: 34px;
+  font-weight: 700;
+}
+.libre-franklin-sans {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+.playfair-display-sans {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: var(--primary);
+  font-size: 68px;
+  line-height: 1;
+}
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.pacifico-regular {
+  text-align: center;
+  margin: 0;
+  font-family: "Pacifico", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =========================================
+   4. Layout & Containers
+   ========================================= */
+.container-fluid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================
+   5. Navbar
+   ========================================= */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar .nav-link {
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link.active {
+  color: var(--primary);
+}
+
+.navbar-nav > li {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 21px 20px;
+}
+
+.navbar-nav > li:hover .nav-link:not(.active) {
+  color: var(--text-main);
+}
+
+.cart {
+  padding: 9px 15px;
+  font-weight: 400;
+  font-size: 14px;
+  border-left: 1px solid var(--border);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.cart:hover {
+  color: var(--text-main);
+  opacity: 1;
+}
+
+.cart-icon {
+  width: 20px;
+}
+
+/* =========================================
+   6. Hero Section
+   ========================================= */
+
+.main-section {
+  width: 100%;
+  height: auto;
+  min-height: 700px;
+  padding: 100px 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background-image: url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.hero-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p1-section {
+  color: var(--light-coral);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  display: block;
+  animation: slideIn 0.25s ease-out both;
+}
+
+.h-section {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 58px;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-out both;
+}
+
+.p2-section {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  animation: slideIn 0.75s ease-out both;
+}
+
+.hero-img-content {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.bg-hero {
+  display: block;
+  width: 100%;
+  max-width: 907px;
+  height: auto;
+}
+
+/* =========================================
+   7. Shared Components (Buttons)
+   ========================================= */
+.button.dark {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 0;
+  display: inline-block;
+  padding: 20px 40px;
+  margin-right: 0;
+  height: auto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1; /* Base state */
+  transform: translateY(0); /* Base state */
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  animation: slideIn 1s ease-out backwards; /* Changed from forwards to backwards */
+}
+
+.button.dark:hover {
+  background-color: black;
+  transform: translateY(-10px);
+}
+
+/* =========================================
+   8. Product Category Section
+   ========================================= */
+
+.product-category {
+  background-color: var(--white);
+  position: relative;
+}
+
+.p1-section-2 {
+  color: var(--light-coral);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.h-section-2 {
+  font-size: 40px;
+  line-height: 50px;
+  color: var(--text-main);
+  margin: 20px 0 10px;
+  text-align: center;
+}
+
+.circles{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center; 
+  margin: 40px 0;
+}
+
+a{
+  text-decoration: none;
+  color: var(--white);
+}
+
+.circle {
+    display: flex;
+    width: 240px;
+    height: 240px;
+    background-color: var(--burlywood);
+    border: 30px solid rgba(0, 0, 0, .05);
+    border-radius: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0 0;
+    margin: 0 40px;
+}
+
+.circle-2 {
+    background-color: var(--orange-red);
+}
+
+.circle-3 {
+    background-color: var(--primary);
+}
+
+.circle-img{
+  width: 70px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.p-1-section-2{
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 38px;
+}
+
+.h2-section-2{
+    color: black;
+    text-align: left;
+    margin-top: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.p2-section-2{
+    font-size: 14px;
+    color: var(--text-light);
+    text-align: left;
+    margin: 20px 0 10px;
+    line-height: 24px;
+}
+
+.product-category::before {
+  content: "and Craft Pottery";
+  position:absolute;
+  top: 50%;
+  left: -12%;
+  transform: rotate(-90deg);
+  color: var(--gainsboro);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: Poppins, sans-serif;
+}
+
+/* =========================================
+   9. Sale Section
+   ========================================= */
+
+.sale-section{
+  padding-top: 40px;
+}
+
+.bg-block {
+    display: flex;
+    width: 500px;
+    height: 220px;
+    background-color: #f5f5f5;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bg-img{
+  width: 250px;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sale-title{
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+}
+
+.button-link-product{
+    margin-top: 20px;
+    display: inline-block;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration: none;
+    transition: all .4s;
+}
+
+.button-link-product:hover{
+    text-decoration: underline;
+}
+
+.cat-section-2{
+    margin-top: 180px;
+    margin-bottom: 180px;
+}
+
+.bg-img-2{
+  width: 350px;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   10. Product Collection Section
+   ========================================= */
+
+.product-item {
+    background-color: transparent;
+    cursor: pointer;
+    width: 390px;
+    max-width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border) !important;
+    transition: border-color 0.4s ease;
+    border-radius: 0 !important;
+}
+
+.product-item:hover {
+    border-color: var(--primary) !important;
+}
+
+.card-img-wrapper {
+    background-color: #f5f5f5;
+    overflow: hidden;
+    height: 450px;
+    border-radius: 0 !important;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-item:hover .card-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.product-name {
+    color: var(--dim-grey);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-decoration: none;
+    transition: color .4s;
+    margin: 15px 0 5px;
+    text-align: left;
+}
+
+.product-price {
+    color: #000;
+    margin-top: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+}
+
+/* =========================================
+   11. CTA Section
+   ========================================= */
+
+.section-cta {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  z-index: 1;
+}
+
+.section-cta .button{
+    animation: none;
+}
+
+.section-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background-image: linear-gradient(to right, white 20vw, transparent 70vw), url("images/cta-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.section-cta {
+  padding: 120px 0px;
+}
+
+.section-cta .container-fluid{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 26px;
+  animation: slideInRight 0.8s ease-out both;
+}
+
+.section-cta h2{
+  margin-top: 10px;
+  color: var(--black);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 46px;
+}
+
+.section-cta p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.span-cta{
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* =========================================
+   12. Newsletter Section
+   ========================================= */
+
+.section-newslatter .container-fluid {
+  animation: slideIn 0.8s ease-out both;
+}
+
+.telegram-icon{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--burlywood);
+  background-image: url("images/icon-newsletter.png");
+  background-size: 38px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto 40px;
+}
+
+.section-newslatter h1{
+  margin: 20px 0 10px;
+  color: var(--black);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 46px;
+}
+
+div input{
+  padding: 8px 12px 8px 40px;
+  margin: 0 2px 10px 0;
+  width: 320px;
+  height:45px;
+  border: 1px solid var(--border);
+  color: var(--dim-grey);
+  background-color: rgba(219, 219, 219, .1);
+  background-image: url("images/icon-email.png");
+  background-position: 9px 57%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  font-family: "libre franklin", sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 23px;
+  display: inline-block;
+}
+
+div input::placeholder {
+  color: var(--dark-grey);
+  
+}
+
+.section-newslatter .button{
+  padding: 9px 35px;
+  height: 45px;
+  display: inline-block;
+  color: var(--white);
+  background-color: black;
+  font-family: "libre franklin", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  border: none;
+  text-decoration: none;
+  transition: none;
+}
+
+[type="checkbox"]{
+  width: 13px;
+  height: 13px;
+  margin: 0;
+}
+
+.section-newslatter label {
+  color: var(--dark-grey);
+  font-size: 13px;
+}
+
+
+/* =========================================
+   13. Footer Section
+   ========================================= */
+
+.p1-footer{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 23px;
+}
+
+.img-footer{
+    width: 40px;
+    height: 40px;
+}
+
+.row-footer-2{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+}
+
+.row-footer-2 div{
+    padding: 10px;
+}
+
+.row-footer-2-col-1{
+    animation: slideInRight 0.4s 0s ease-out both;
+}
+
+.row-footer-2-col-2{
+    animation: slideInRight 0.4s 0.2s ease-out both;
+}
+
+.row-footer-2-col-3{
+    animation: slideInRight 0.4s 0.4s ease-out both;
+}
+
+/* =========================================
+   14. Animations
+   ========================================= */
+
+@keyframes slideIn {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Animations for Sale Section */
+
+.animation-block .bg-block-2,
+.animation-block .bg-block,
+.animation-block .product-item {
+  animation: slideInLeft 0.8s ease-out both;
+}
+
+.animation-block-2 .info-sale-block,
+.animation-block-2 .bg-block,
+.animation-block-2 .bg-block-2,
+.animation-block-2 .product-item {
+  animation: slideInRight 0.8s ease-out both;
+}
+
+.animation-block .info-sale-block {
+  animation: slideInLeft 0.4s ease-in-out both;
+}
+
+
+
+
+/* =========================================
+   15. Media Queries
+   ========================================= */
+
+/* Desktop & Large Tablets */
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .main-section {
+    text-align: left;
+    height: 700px;
+  }
+
+  .hero-row {
+    margin-top: -150px;
+    flex-wrap: nowrap;
+  }
+
+  .hero-img-content {
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+
+  .section-cta {
+    height: 50vh;
+  }
+}
+
+/* Mobile & Older Tablets */
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    z-index: 999;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  ul .nav-link {
+    width: 100%;
+  }
+  
+  .navbar-nav > li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  
+  .navbar-nav > li:last-child {
+    border-bottom: none;
+  }
+
+  .brand-font {
+    font-size: 28px;
+  }
+
+  .h-section {
+    font-size: 28px;
+    line-height: 36px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    margin-bottom: 15px;
+  }
+
+  .h-section-2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .playfair-display-sans {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .pacifico-regular {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .hero-row {
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .cta-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-img-content {
+    margin: 30px auto 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .bg-hero {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .circles{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .circle{
+    margin: 20px 0;
+  }
+
+  .product-category::before{
+    display: none;
+  }
+
+  .bg-block {
+    width: auto;
+  }
+
+  .cat-section-2{
+    margin: 160px 0 40px;
+  }
+
+  .info-sale-block{
+    margin-top: 160px;
+}
+
+.info-sale-block-2{
+    margin-top: 80px;
+}
+
+.section-newslatter h1{
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.section-newslatter span{
+  font-size: 48px;
+  line-height: 58px;
+}
+
+.section-newslatter .button {
+  width: 320px;
+  margin-top: 10px;
+}
+
+}
