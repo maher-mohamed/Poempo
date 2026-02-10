@@ -1,15 +1,15 @@
 /* =========================================
-   1. Root Variables & Reset
+   1. Design Tokens & Core Reset
    ========================================= */
 :root {
   --primary: #ac1313;
   --text-main: #000;
   --text-light: #6c6c6c;
   --border: #ebebeb;
-  --dim-grey: #6c6c6c;
-  --light-coral: #d77474;
-  --white: white;
+  --white: #ffffff;
   --tan: #ebb96a;
+  --bg-light: #f5f5f5;
+  --light-coral: #d77474;
 }
 
 * {
@@ -29,7 +29,6 @@ section {
   border-top: 1px solid var(--border); 
 }
 
-/* Base Container */
 .container-max { 
   max-width: 1200px; 
   margin: 0 auto; 
@@ -37,137 +36,97 @@ section {
 }
 
 /* =========================================
-   2. Typography System (Restored Original)
+   2. Typography System
    ========================================= */
 .brand-font {
   font-family: "Pacifico", sans-serif;
   color: var(--text-main);
   font-size: 34px;
   font-weight: 700;
-}
-
-.libre-franklin-sans {
-  font-family: "Libre Franklin", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
+  text-decoration: none;
 }
 
 .playfair-display-sans {
   font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
   color: var(--primary);
   font-size: 68px;
   line-height: 1;
-}
-
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
-.poppins-medium {
+.poppins { font-family: "Poppins", sans-serif; }
+.tracking-2 { 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  font-size: 14px; 
+}
+
+h1, h2, h3, h4, .h-section, .h-section-2 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-}
-
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-}
-
-.pacifico-regular {
-  text-align: center;
-  margin: 0;
-  font-family: "Pacifico", sans-serif;
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 40px;
-}
-
-.lato-regular {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.tracking-2 {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
+  color: var(--text-main);
 }
 
 p {
-  color: var(--dim-grey);
-  text-align: left;
-  margin-bottom: 10px;
+  color: var(--text-light);
   font-family: 'Libre Franklin', sans-serif;
   font-size: 14px;
   line-height: 24px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-/* =========================================
-   3. Buttons & Headers (Restored Original)
-   ========================================= */
-.button.dark {
-  background-color: var(--primary);
-  color: var(--white);
-  border: none;
-  border-radius: 0;
-  display: inline-block;
-  padding: 20px 40px;
-  height: auto;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.4s ease, background-color 0.4s ease;
-  animation: slideIn 1s ease-out backwards;
-}
-
-.button.dark:hover {
-  background-color: black;
-  transform: translateY(-10px);
-}
-
-.p1-section-2 {
+.p1-section {
   color: var(--light-coral);
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 14px;
-  line-height: 24px;
-  text-align: center;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.h-section {
+  font-size: 48px;
+  line-height: 58px;
+  margin-bottom: 20px;
 }
 
 .h-section-2 {
   font-size: 40px;
   line-height: 50px;
-  color: var(--text-main);
   margin: 20px 0 10px;
-  text-align: center;
 }
 
-.btn-dark-custom {
-  background: var(--primary);
-  color: #fff;
+.p2-section {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   3. Common Components
+   ========================================= */
+.button.dark, .btn-dark-custom {
+  background-color: var(--primary);
+  color: var(--white);
   border: none;
   padding: 20px 40px;
   font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  transition: 0.4s;
-  font-weight: 400;
+  cursor: pointer;
+  transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
-.btn-dark-custom:hover {
-  background: #000;
+.button.dark:hover, .btn-dark-custom:hover {
+  background-color: black;
   transform: translateY(-10px);
-  color: #fff;
+  color: var(--white);
 }
 
 .category-circle {
@@ -187,7 +146,7 @@ p {
 .product-item {
   width: 390px;
   max-width: 100%;
-  border-bottom: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border);
   transition: 0.4s;
   cursor: pointer;
   margin: 0 auto;
@@ -195,21 +154,21 @@ p {
 }
 
 .product-item:hover {
-  border-bottom-color: var(--primary) !important;
+  border-bottom-color: var(--primary);
 }
 
 .img-wrapper-bg {
-  background: #f5f5f5;
+  background: var(--bg-light);
   height: 450px;
   overflow: hidden;
-  border-radius: 0;
+  margin-bottom: 15px;
 }
 
 .product-item img {
-  transition: 0.6s ease;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.6s ease;
 }
 
 .product-item:hover img {
@@ -217,33 +176,29 @@ p {
 }
 
 .product-name {
-  color: var(--dim-grey);
+  color: var(--text-light);
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  text-decoration: none;
-  transition: color .4s;
   margin: 15px 0 5px;
-  text-align: left;
   font-family: "Poppins", sans-serif;
+  transition: color 0.4s;
 }
 
 .product-price {
-  color: #000;
-  margin-top: 0;
+  color: var(--text-main);
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 24px;
-  text-align: left;
+  margin-top: 0;
 }
 
 /* =========================================
-   4. Hero Section (Restored Original)
+   4. Sections Layout
    ========================================= */
 .main-section {
   width: 100%;
-  height: auto;
   min-height: 700px;
   padding: 100px 20px 60px;
   display: flex;
@@ -261,73 +216,26 @@ p {
   transform: translateX(-50%);
   width: 100vw;
   height: 100%;
-  background-image: url("images/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("images/hero-bg.jpg") center/cover;
   z-index: -1;
-}
-
-.hero-row {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.p1-section {
-  color: var(--light-coral);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-  animation: slideIn 0.25s ease-out both;
-}
-
-.h-section {
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 58px;
-  color: var(--text-main);
-  margin-bottom: 20px;
-  animation: slideIn 0.5s ease-out both;
-}
-
-.p2-section {
-  font-size: 16px;
-  line-height: 26px;
-  color: var(--text-light);
-  margin-bottom: 40px;
-  animation: slideIn 0.75s ease-out both;
-}
-
-.hero-img-content {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
 }
 
 .bg-hero {
   display: block;
   width: 100%;
   max-width: 907px;
-  height: auto;
 }
 
 .bg-block-item {
   width: 500px;
   max-width: 100%;
   height: 220px;
-  background: #f5f5f5;
+  background: var(--bg-light);
   margin: 0 auto;
   position: relative;
-}
-
-.bg-block-item img {
-  max-width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sale-row {
@@ -338,7 +246,7 @@ p {
 .sale-link {
   margin-top: 20px;
   display: inline-block;
-  color: #000;
+  color: var(--text-main);
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
@@ -352,7 +260,6 @@ p {
 .section-cta {
   height: 600px;
   background: linear-gradient(to right, #fff 20%, transparent 70%), url("images/cta-bg.jpg") center/cover no-repeat;
-  padding: 120px 0;
 }
 
 /* Newsletter Styles */
@@ -378,7 +285,7 @@ p {
 .newsletter-btn-black { 
   height: 45px;
   background: #000;
-  color: #fff;
+  color: var(--white);
   border: none;
   padding: 0 35px; 
   text-transform: uppercase;
@@ -387,8 +294,13 @@ p {
 }
 
 /* =========================================
-   Navbar Styles
+   5. Navbar & Navigation
    ========================================= */
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
 .navbar .nav-link {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -408,139 +320,46 @@ p {
 }
 
 /* =========================================
-   5. Animations
+   6. Animations
    ========================================= */
-.anim-up {
-  animation: slideUp 0.8s ease-out backwards;
+.anim-up, .anim-left, .anim-right {
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
 }
 
-.anim-left {
-  animation: slideLeft 1s ease-out backwards;
-}
+.anim-up { animation-name: slideUp; }
+.anim-left { animation-name: slideLeft; animation-duration: 1s; }
+.anim-right { animation-name: slideRight; animation-duration: 1s; }
 
-.anim-right {
-  animation: slideRight 1s ease-out backwards;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+@keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
 
 /* =========================================
-   6. Media Queries & Desktop Fixes
+   7. Media Queries
    ========================================= */
 @media (min-width: 992px) {
-  .main-section {
-    text-align: left;
-    height: 700px;
-  }
-  .hero-row {
-    margin-top: -150px;
-    flex-wrap: nowrap;
-  }
-  .hero-img-content {
-    justify-content: flex-end;
-    margin-top: 0;
-  }
-  .section-cta {
-    height: 50vh;
-  }
+  .main-section { text-align: left; height: 700px; }
+  .hero-row { margin-top: -150px; flex-wrap: nowrap; }
+  .hero-img-content { display: flex; justify-content: flex-end; margin-top: 0; }
+  .section-cta { height: 50vh; }
 }
 
 @media (max-width: 991px) {
-  .playfair {
-    font-size: 38px;
-  }
-  .hero-section {
-    text-align: center;
-  }
+  .playfair-display-sans { font-size: 28px; }
+  .hero-text-content p, .hero-text-content h2 { text-align: center !important; }
   .navbar-collapse { 
     background: #fff; 
-    padding: 0; 
-    border: none;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    position: absolute; top: 100%; left: 0; width: 100%; z-index: 1000;
   }
-  .navbar-collapse .navbar-nav {
-    margin: 0;
-  }
-  .navbar-collapse .nav-item {
-    border-bottom: 1px solid var(--border);
-    padding: 15px 20px;
-    width: 100%;
-  }
-  .navbar-collapse .nav-item:last-child {
-    border-bottom: none;
-  }
-  .navbar-collapse .nav-link {
-    padding: 0;
-  }
-  .navbar-brand {
-    white-space: nowrap;
-    margin-right: auto;
-  }
-  .navbar .container-fluid {
-    flex-wrap: nowrap !important;
-    position: relative;
-  }
-  .navbar-toggler {
-    padding-right: 0;
-    margin-left: 10px;
-  }
+  .navbar-nav .nav-item { border-bottom: 1px solid var(--border); padding: 15px 20px; }
+  .navbar-nav .nav-item:last-child { border-bottom: none; }
   .section-cta { 
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("images/cta-bg.jpg") center/cover no-repeat;
-    height: auto; 
-    padding: 100px 0;
-    text-align: left;
+    height: auto; padding: 100px 0; text-align: left;
   }
-  .playfair-display-sans {
-    font-size: 28px;
-  }
-  .hero-text-content p, 
-  .hero-text-content h2 {
-    text-align: center !important;
-  }
-  .sale-row {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    text-align: center;
-  }
-  .newsletter-input-styled, 
-  .newsletter-btn-black {
-    width: 100% !important;
-    max-width: 350px;
-  }
+  .sale-row { margin-top: 60px; margin-bottom: 60px; text-align: center; }
+  .newsletter-input-styled, .newsletter-btn-black { width: 100% !important; max-width: 350px; }
 }
